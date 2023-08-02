@@ -15,7 +15,9 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllerRoute("pagination", "/{controller=home}/{action=index}/page{PageNumber}");
+    endpoints.MapControllerRoute("pagination", "/{controller=home}/{action=index}/{category}/Page{PageNumber}"); 
+    endpoints.MapControllerRoute("pagination", "/{controller=home}/{action=index}/Page{PageNumber}");
+    endpoints.MapControllerRoute("pagination", "/{controller=home}/{action=index}/{category}");
     endpoints.MapDefaultControllerRoute();
 });
 

@@ -7,7 +7,7 @@ namespace Asp07Store.ShopUI.Controllers
     public class HomeController : Controller
     {
         private readonly IProduct iproduct;
-        private int pageSize = 4;
+        private int pageSize = 2;
 
         public HomeController(IProduct iproduct)
         {

@@ -22,8 +22,8 @@ namespace Asp07Store.ShopUI.Models.Repository
                 }
             };
 
-            result.Data= storeDbContext.Products.Where(c=>string.IsNullOrWhiteSpace(category)||c.Category==category ).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-            result.pageInfo.TotalCount = storeDbContext.Products.Count();
+            result.Data= storeDbContext.Products.Where(c=>string.IsNullOrEmpty(category)||c.Category==category ).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            result.pageInfo.TotalCount = storeDbContext.Products.Where(c => string.IsNullOrEmpty(category) || c.Category == category).Count();
             return result;
         }
     }
