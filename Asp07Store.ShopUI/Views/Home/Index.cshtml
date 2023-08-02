@@ -1,0 +1,6 @@
+﻿@model PageData<Product>
+@foreach (var item in Model.Data)
+{
+    @Html.Partial("ProductSummary",item)
+}
+<div page-model="Model.pageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="" page-class-selected="btn-success"></div>
