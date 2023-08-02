@@ -2,7 +2,7 @@
 {
     public interface IProduct
     {
-        PageData<Product> GetAll(int pageNumber,int pageSize);
+        PageData<Product> GetAll(int pageNumber,int pageSize,string category);
 
     }
 }

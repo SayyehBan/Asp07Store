@@ -1,4 +1,5 @@
-﻿using Asp07Store.ShopUI.Models.Interface;
+﻿using Asp07Store.ShopUI.Models;
+using Asp07Store.ShopUI.Models.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Asp07Store.ShopUI.Controllers
@@ -12,9 +13,14 @@ namespace Asp07Store.ShopUI.Controllers
         {
             this.iproduct = iproduct;
         }
-        public IActionResult Index(int pageNumber = 1)
+        public IActionResult Index(string category = "", int pageNumber = 1)
         {
-            return View(iproduct.GetAll(pageNumber, pageSize));
+            var viewModel = new ProductListViewModel
+            {
+                CurrentCategory = category,
+                Data = iproduct.GetAll(pageNumber, pageSize, category)
+            };
+            return View(viewModel);
         }
     }
 }

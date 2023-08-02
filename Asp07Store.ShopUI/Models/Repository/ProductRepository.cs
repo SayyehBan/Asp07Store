@@ -10,7 +10,7 @@ namespace Asp07Store.ShopUI.Models.Repository
         {
             this.storeDbContext = storeDbContext;
         }
-        public PageData<Product> GetAll(int pageNumber, int pageSize)
+        public PageData<Product> GetAll(int pageNumber, int pageSize, string category)
         {
             var result=new PageData<Product>
             {
@@ -18,10 +18,11 @@ namespace Asp07Store.ShopUI.Models.Repository
                 {
                     PageSize = pageSize,
                     PageNumber = pageNumber,
+                    
                 }
             };
 
-            result.Data= storeDbContext.Products.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            result.Data= storeDbContext.Products.Where(c=>string.IsNullOrWhiteSpace(category)||c.Category==category ).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
             result.pageInfo.TotalCount = storeDbContext.Products.Count();
             return result;
         }
