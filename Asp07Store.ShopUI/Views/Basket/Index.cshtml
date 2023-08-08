@@ -1,5 +1,5 @@
 ﻿@model BasketPageViewModel
-<table class="table table-bordered table-info">
+<table class="table table-bordered table-info table-striped">
     <tr>
         <td>
             عنوان
@@ -34,7 +34,7 @@
                            value="@item.Product.Id" />
                     <input type="hidden" name="returnURL"
                            value="@Model.ReturnURL" />
-                           <input type="submit" value="حذف" class="btn btn-danger"/>
+                    <input type="submit" value="حذف" class="btn btn-danger" />
                 </form>
             </td>
         </tr>
@@ -44,4 +44,8 @@
         <td>@Model.basket.TotalPrice().ToString("N0")</td>
     </tr>
 </table>
-<div class="text-center"><a class="btn btn-info" href="@Model.ReturnURL">ادامه خرید</a></div>
+<div class="text-center">
+    <a class="btn btn-info" href="@Model.ReturnURL">ادامه خرید</a>
+    <a class="btn btn-success" asp-action="CheckOut" asp-controller="Order">پرداخت</a>
+</div>
+

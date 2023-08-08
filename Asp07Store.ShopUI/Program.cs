@@ -11,6 +11,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<Basket>(c => SessionBasket.GetBasket(c));
+builder.Services.AddScoped<IOrders, OrdersRepository>();
 var app = builder.Build();
 app.UseDeveloperExceptionPage();
 app.UseStatusCodePages();
