@@ -1,0 +1,32 @@
+﻿@model BasketPageViewModel
+<table class="table table-bordered table-info">
+    <tr>
+        <td>
+            عنوان
+        </td>
+        <td>
+            قیمت
+        </td>
+        <td>
+            تعداد
+        </td>
+    </tr>
+    @foreach (var item in Model.basket.Items)
+    {
+        <tr>
+            <td>
+                @item.Product.Name
+            </td>
+            <td>
+                @item.Product.Price.ToString("N0")
+            </td>
+            <td>
+                @item.Quantity.ToString("N0")
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>جمع کل: </td>
+        <td colspan="2">@Model.basket.TotalPrice().ToString("N0")</td>
+    </tr>
+</table>

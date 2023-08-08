@@ -7,6 +7,13 @@
                 @Model.Price
             </small>
         </span>
+
         <p>@Model.Description</p>
+        <form asp-controller="Basket" asp-action="AddToBasket" method="post">
+            <input type="hidden" value="@Model.Id" name="ProductID" />
+            <input type="hidden" value="Home/Index" name="returnURL" />
+            <input type="submit" value="افزودن به سبد کالا" />
+        </form>
     </h4>
+
 </div>
