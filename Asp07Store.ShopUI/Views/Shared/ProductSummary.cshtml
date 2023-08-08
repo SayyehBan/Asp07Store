@@ -11,7 +11,7 @@
         <p>@Model.Description</p>
         <form asp-controller="Basket" asp-action="AddToBasket" method="post">
             <input type="hidden" value="@Model.Id" name="ProductID" />
-            <input type="hidden" value="Home/Index" name="returnURL" />
+            <input type="hidden" value="@ViewContext.HttpContext.Request.Path" name="returnURL" />
             <input type="submit" value="افزودن به سبد کالا" />
         </form>
     </h4>

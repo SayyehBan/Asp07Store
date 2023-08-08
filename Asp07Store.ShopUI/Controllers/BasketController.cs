@@ -35,9 +35,16 @@ namespace Asp07Store.ShopUI.Controllers
                 returnURL = returnURL
             });
         }
-        public IActionResult RemoveFromBasket()
+        public IActionResult RemoveFromBasket(int ProductID, string returnURL)
         {
-            return RedirectToAction("Index");
+            var pro = product.GetById(ProductID);
+            var basket = GetBasket();
+            basket.Remove(pro);
+            SaveBasket(basket);
+            return RedirectToAction("Index", new
+            {
+                returnURL = returnURL
+            });
         }
         private Basket GetBasket()
         {
