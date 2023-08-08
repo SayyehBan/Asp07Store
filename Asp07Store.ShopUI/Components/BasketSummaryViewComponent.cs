@@ -1,0 +1,20 @@
+﻿using Asp07Store.ShopUI.Models;
+
+namespace Asp07Store.ShopUI.Components
+{
+    public class BasketSummaryViewComponent:ViewComponent
+    {
+        private readonly Basket basket;
+
+        public BasketSummaryViewComponent(Basket basket)
+        {
+            this.basket = basket;
+        }
+
+        public IViewComponentResult Invoke()
+        {
+
+            return View(basket);
+        }
+    }
+}

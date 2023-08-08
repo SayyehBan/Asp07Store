@@ -1,0 +1,34 @@
+﻿@model Basket
+<div class="m-1 p-1">
+    <table class="table table-bordered table-striped table-secondary">
+        <tr>
+            <td>
+                گزینه ها سبد خرید
+            </td>
+            <td>
+                @if (Model.Items.Any())
+                {
+                    <spna>@Model.Items.Sum(c => c.Quantity)</spna>
+                }
+                else
+                {
+                    <span>0</span>
+                }
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                جمع هزنیه ها
+            </td>
+            <td>
+                @Model.TotalPrice().ToString("N0")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a class="btn btn-success" asp-controller="Basket" asp-action="Index">سبد خرید</a>
+            </td>
+        </tr>
+    </table>
+</div>
