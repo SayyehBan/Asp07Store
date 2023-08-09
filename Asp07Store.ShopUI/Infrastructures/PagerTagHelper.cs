@@ -1,4 +1,4 @@
-﻿using Asp07Store.ShopUI.Models;
+﻿using Asp07Store.Framework.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;

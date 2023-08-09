@@ -1,4 +1,6 @@
-﻿namespace Asp07Store.ShopUI.Models.Repository
+﻿using Asp07Store.ShopUI.Models.Interface;
+
+namespace Asp07Store.ShopUI.Models.Repository
 {
     public class OrdersRepository : IOrders
     {

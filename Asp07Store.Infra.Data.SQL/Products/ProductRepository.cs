@@ -1,4 +1,5 @@
-﻿using Asp07Store.ShopUI.Models.Interface;
+﻿using Asp07Store.Framework.Pagination;
+using Asp07Store.ShopUI.Models.Interface;
 
 namespace Asp07Store.ShopUI.Models.Repository
 {
@@ -22,12 +23,11 @@ namespace Asp07Store.ShopUI.Models.Repository
                 }
             };
 
-            result.Data = storeDbContext.Products.Where(c => string.IsNullOrEmpty(category) || c.Category == category).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-            result.pageInfo.TotalCount = storeDbContext.Products.Where(c => string.IsNullOrEmpty(category) || c.Category == category).Count();
+            result.Data = storeDbContext.Products.Where(c => string.IsNullOrEmpty(category) || c.Category.Name == category).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            result.pageInfo.TotalCount = storeDbContext.Products.Where(c => string.IsNullOrEmpty(category) || c.Category.Name == category).Count();
             return result;
         }
 
-        public List<string> GetAllCategories() => storeDbContext.Products.Select(c => c.Category).Distinct().ToList();
 
         public Product GetById(int id)
         {

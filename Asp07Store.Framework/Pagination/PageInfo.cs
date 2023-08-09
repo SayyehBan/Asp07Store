@@ -1,4 +1,4 @@
-﻿namespace Asp07Store.ShopUI.Models
+﻿namespace Asp07Store.Framework.Pagination
 {
     public class PageInfo
     {
@@ -6,10 +6,5 @@
         public int TotalCount { get; set; }
         public int PageNumber { get; set; }
         public int PageCount => (int)Math.Ceiling((double)TotalCount / PageSize);
-    }
-    public class PageData<T>
-    {
-        public List<T> Data { get; set; }
-        public PageInfo pageInfo { get; set; }
     }
 }

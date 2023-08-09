@@ -1,4 +1,6 @@
-﻿namespace Asp07Store.ShopUI.Models
+﻿using Asp07Store.Framework.Pagination;
+
+namespace Asp07Store.ShopUI.Models
 {
     public class ProductListViewModel
     {

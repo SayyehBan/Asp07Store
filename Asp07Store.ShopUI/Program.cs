@@ -12,6 +12,7 @@ builder.Services.AddSession();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<Basket>(c => SessionBasket.GetBasket(c));
 builder.Services.AddScoped<IOrders, OrdersRepository>();
+builder.Services.AddScoped<ICategory, CategoryRepository>();
 var app = builder.Build();
 app.UseDeveloperExceptionPage();
 app.UseStatusCodePages();
